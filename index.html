@@ -1,293 +1,374 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plano de Ação Estratégico - Pneucar</title>
+    <title>Onboarding de Marketing | Ecossistema Live</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins e Merriweather -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@0.292.0/dist/lucide-react.js"></script>
+    <script src="https://unpkg.com/lucide-icons@0.372.0/dist/lucide.js"></script>
+
+
     <style>
         :root {
             --azul-petroleo: #06192a;
             --verde-vibrante: #00e800;
             --cinza-claro: #f4f4f4;
             --branco: #ffffff;
+            --azul-card: #0A243D;
+            --cinza-texto: #a0aec0;
+            --font-primaria: 'Poppins', sans-serif;
+            --font-secundaria: 'Merriweather', serif;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-primaria);
             background-color: var(--azul-petroleo);
-            background-image: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.05), transparent 50%);
-            color: var(--branco);
+            color: var(--cinza-claro);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-attachment: fixed;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        h1, h2, h3, h4 {
+            font-family: var(--font-primaria);
+            font-weight: 700;
         }
-
-        p, li, span, strong {
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .font-brand-secondary {
-            font-family: 'Merriweather', serif;
-        }
-
+        
         .text-brand-green {
             color: var(--verde-vibrante);
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 8px rgba(0, 232, 0, 0.7);
         }
 
-        .section-title {
-            border-bottom: 2px solid var(--verde-vibrante);
-            padding-bottom: 8px;
-            margin-bottom: 24px;
+        .bg-brand-dark {
+            background-color: var(--azul-petroleo);
         }
-
+        
         .card {
-            background-color: rgba(255, 255, 255, 0.03);
+            background-color: var(--azul-card);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
-        .tab-button {
+        .font-brand-secondary {
+            font-family: var(--font-secundaria);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(6, 25, 42, 0.9), rgba(6, 25, 42, 1));
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .diagram-item {
             transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+             border: 2px solid var(--verde-vibrante);
         }
-
-        .tab-button.active {
-            color: var(--verde-vibrante);
-            border-bottom-color: var(--verde-vibrante);
+        .diagram-item:hover {
+            background-color: var(--verde-vibrante);
+            color: var(--azul-petroleo);
+            transform: scale(1.05);
         }
-        
-        .tab-content {
-            display: none;
+        .diagram-line {
+            height: 2px;
+            background-color: var(--verde-vibrante);
+            opacity: 0.5;
         }
-
-        .task-list li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 16px;
-        }
-
-        .task-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: var(--verde-vibrante);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        .task-details {
-            font-size: 0.875rem; /* text-sm */
-            color: #a0aec0; /* text-gray-400 */
-            margin-top: 4px;
-            padding-left: 1rem;
-            border-left: 2px solid rgba(0, 232, 0, 0.2);
+        .highlight-section {
+            border-left: 4px solid var(--verde-vibrante);
+            padding-left: 2rem;
+            background: linear-gradient(90deg, rgba(0, 232, 0, 0.05) 0%, rgba(0, 232, 0, 0) 100%);
         }
     </style>
 </head>
-<body>
+<body class="bg-brand-dark">
 
-    <!-- Cabeçalho -->
-    <header class="bg-transparent">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-start space-x-4">
-                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Ecossistema Live" class="h-10">
-                <div>
-                    <h1 class="text-2xl md:text-3xl font-bold text-white">Pneucar</h1>
-                    <p class="text-md text-brand-green font-semibold">Projeto de Estruturação e Eficiência Operacional</p>
-                </div>
-            </div>
+    <!-- HEADER -->
+    <header class="py-4 px-4 sm:px-8 md:px-16 fixed top-0 left-0 right-0 z-50 bg-azul-petroleo/80 backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Live Liderança & Vendas" class="h-10">
+            <p class="hidden md:block text-right text-gray-300 font-semibold">Onboarding de Marketing</p>
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="container mx-auto px-6 py-8">
+    <main class="pt-24">
 
-        <!-- Seção Macro Plano Estratégico -->
-        <section id="macro-plano" class="mb-12">
-            <h2 class="text-2xl font-bold text-white section-title flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                Macro Plano Estratégico
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Fase 1 -->
-                <div class="card p-6 rounded-lg text-center">
-                    <div class="bg-gray-800 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4 border-2 border-green-500">
-                        <span class="text-2xl font-bold text-brand-green">1</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-2 text-white">Estruturação (AS-IS)</h3>
-                    <p class="text-gray-400 text-sm">Organizar a base da operação, mapear processos, definir responsabilidades e mitigar riscos atuais.</p>
+        <!-- HERO SECTION -->
+        <section class="hero-gradient py-20 md:py-28 text-center">
+            <div class="container mx-auto px-4 fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    Bem-vindo(a) à Estratégia <br class="hidden md:block"> do <span class="text-brand-green">Ecossistema Live</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Esta é a base para construirmos juntos a nossa estratégia de marketing e impulsionar nosso crescimento.</p>
+            </div>
+        </section>
+
+        <!-- O QUE SOMOS -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-16 fade-in highlight-section" style="animation-delay: 0.2s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">O Que Somos</h2>
+                    <p class="mt-2 text-gray-400">Nossa missão e filosofia.</p>
                 </div>
-                <!-- Fase 2 -->
-                <div class="card p-6 rounded-lg text-center">
-                    <div class="bg-gray-800 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4 border-2 border-gray-500">
-                        <span class="text-2xl font-bold text-white">2</span>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-center">
+                    <div class="card p-8 rounded-xl">
+                        <i data-lucide="rocket" class="w-12 h-12 mx-auto text-brand-green"></i>
+                        <h3 class="text-2xl font-bold mt-4">Nossa Missão</h3>
+                        <p class="mt-2 text-gray-400">Transformar pessoas e impulsionar empresas através de experiências que elevam o padrão de liderança e performance em vendas.</p>
                     </div>
-                    <h3 class="font-bold text-xl mb-2 text-white">Modelagem (TO-BE)</h3>
-                    <p class="text-gray-400 text-sm">Desenhar novas linhas de produtos/serviços, reestruturar a equipe e contratar talentos para a expansão.</p>
-                </div>
-                <!-- Fase 3 -->
-                <div class="card p-6 rounded-lg text-center">
-                    <div class="bg-gray-800 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4 border-2 border-gray-500">
-                        <span class="text-2xl font-bold text-white">3</span>
+                    <div class="card p-8 rounded-xl">
+                        <i data-lucide="heart-pulse" class="w-12 h-12 mx-auto text-brand-green"></i>
+                        <h3 class="text-2xl font-bold mt-4">O Significado "Live"</h3>
+                        <p class="mt-2 text-gray-400">Estar presente, ativo e em movimento. Viver o desenvolvimento de forma vibrante, com atitude, clareza e ação.</p>
                     </div>
-                    <h3 class="font-bold text-xl mb-2 text-white">Implementação</h3>
-                    <p class="text-gray-400 text-sm">Executar a nova modelagem de negócio, lançar os novos serviços e escalar a operação com base no planejamento.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Plano de Ação Fase 1 -->
-        <section id="plano-acao">
-            <h2 class="text-2xl font-bold text-white section-title flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 011.447-.894L9 9m0 11V9m0 11a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2a2 2 0 012-2h2z" /></svg>
-                Fase 1: Plano de Ação (Estruturação)
-            </h2>
-            
-            <!-- Botões das Abas -->
-            <div class="flex flex-wrap border-b border-gray-700 mb-6">
-                <button class="tab-button active text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-a')">A. Estratégia</button>
-                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-b')">B. Processos</button>
-                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-c')">C. RH</button>
-                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-d')">D. Comercial</button>
-                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-e')">E. Melhoria</button>
-            </div>
-
-            <!-- Conteúdo das Abas -->
-            <div class="card p-6 rounded-lg">
-                <div id="tab-a" class="tab-content" style="display: block;">
-                    <h3 class="font-bold text-xl mb-3 text-brand-green">A. Modelagem e Estratégia do Negócio</h3>
-                    <ul class="task-list text-gray-200">
-                        <li>
-                            <strong>Construir o Business Model Canvas</strong>
-                            <div class="task-details">
-                                <p><strong>Responsáveis:</strong> Luís e Marcell.</p>
-                                <p><strong>Participação:</strong> Cléber (ativa na elaboração e execução).</p>
-                            </div>
-                        </li>
-                    </ul>
+        <!-- PROPOSTAS DE VALOR -->
+        <section class="py-16 md:py-24 bg-brand-dark/50">
+            <div class="container mx-auto px-4 md:px-16 fade-in highlight-section" style="animation-delay: 0.4s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Propostas de Valor</h2>
+                    <p class="mt-2 text-gray-400">Os pilares que comunicamos ao mercado.</p>
                 </div>
-                <div id="tab-b" class="tab-content">
-                    <h3 class="font-bold text-xl mb-3 text-brand-green">B. Mapeamento de Processos "As-Is"</h3>
-                    <ul class="task-list text-gray-200">
-                        <li>
-                            <strong>Entrega de Áudios de Mapeamento</strong>
-                            <div class="task-details">
-                                <p><strong>Descrição:</strong> Marcell deve detalhar a jornada do cliente, rotinas do mecânico e do gestor, portfólio de serviços e escopo de veículos.</p>
-                                <p><strong>Responsável:</strong> Marcell.</p>
-                                <p><strong>Prazo:</strong> 02/09/2025 (Terça-feira).</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="tab-c" class="tab-content">
-                    <h3 class="font-bold text-xl mb-3 text-brand-green">C. Estruturação Organizacional e de RH</h3>
-                    <ul class="task-list text-gray-200">
-                        <li>
-                            <strong>Entrega de Áudio (Estrutura e Cargos)</strong>
-                            <div class="task-details">
-                                <p><strong>Descrição:</strong> Marcell deve enviar áudio descrevendo a estrutura atual e as funções de cada membro da equipe.</p>
-                                <p><strong>Responsável:</strong> Marcell.</p>
-                                <p><strong>Prazo:</strong> 29/08/2025 (Sexta-feira).</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Desenhar o Organograma da Empresa</strong>
-                            <div class="task-details">
-                                <p><strong>Responsáveis:</strong> Luiz Portal e Marcell.</p>
-                                <p><strong>Prazo:</strong> 02/09/2025 (Terça-feira).</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Revisar o Plano de Cargos e Salários</strong>
-                            <div class="task-details"><p><strong>Prazo:</strong> A definir.</p></div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="tab-d" class="tab-content">
-                    <h3 class="font-bold text-xl mb-3 text-brand-green">D. Análise Comercial e de Serviços</h3>
-                     <ul class="task-list text-gray-200">
-                        <li>
-                            <strong>Extrair Relatórios do Sistema</strong>
-                            <div class="task-details">
-                                <p><strong>Descrição:</strong> Marcell deve gerar relatórios de tabela de preços (produtos) e curva ABC (produtos e serviços).</p>
-                                <p><strong>Responsável:</strong> Marcell.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="tab-e" class="tab-content">
-                    <h3 class="font-bold text-xl mb-3 text-brand-green">E. Melhoria Contínua e Conformidade</h3>
-                    <ul class="task-list text-gray-200">
-                        <li>
-                            <strong>Programa 5S</strong>
-                            <div class="task-details"><p><strong>Responsável:</strong> A definir (Terceirizado ou Marcell com apoio do Cléber).</p></div>
-                        </li>
-                        <li>
-                            <strong>Levantar Riscos Trabalhistas</strong>
-                            <div class="task-details">
-                                <p><strong>Ação:</strong> Fazer cotação com Dr. Renato Leandro (Advogado Trabalhista).</p>
-                                <p><strong>Responsável:</strong> A definir.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Implementar a "Gestão à Vista"</strong>
-                            <div class="task-details">
-                                <p><strong>Descrição:</strong> Criar painéis visuais para rotinas, checklists e indicadores.</p>
-                                <p><strong>Responsável:</strong> Cléber.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-6 rounded-xl text-center">
+                        <h3 class="text-xl font-bold text-brand-green">Autoridade e Expertise</h3>
+                        <p class="mt-2 text-sm text-gray-400">Posicionamos Luiz Portal como referência em Liderança Antifrágil.</p>
+                    </div>
+                    <div class="card p-6 rounded-xl text-center">
+                        <h3 class="text-xl font-bold text-brand-green">Comunidade e Networking</h3>
+                        <p class="mt-2 text-sm text-gray-400">Conectamos líderes em uma comunidade exclusiva para crescimento contínuo.</p>
+                    </div>
+                    <div class="card p-6 rounded-xl text-center">
+                        <h3 class="text-xl font-bold text-brand-green">Desenvolvimento Personalizado</h3>
+                        <p class="mt-2 text-sm text-gray-400">Oferecemos mentorias e soluções sob medida para desafios específicos.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Fases 2 e 3 -->
-        <section id="fases-futuras" class="mt-12">
-            <h2 class="text-2xl font-bold text-white section-title flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                Visão de Futuro: Fases 2 e 3
-            </h2>
-            <div class="card p-6 rounded-lg">
-                <h3 class="font-bold text-xl mb-3 text-brand-green">Fase 2: Modelagem e Expansão (TO-BE)</h3>
-                <ul class="task-list text-gray-200">
-                    <li><strong>Modelagem de novas linhas de produtos e serviços.</strong></li>
-                    <li><strong>Desligamento ou repactuação com os dois irmãos mecânicos.</strong></li>
-                    <li><strong>Contratação de um vendedor para a Pneucar.</strong></li>
-                </ul>
-                <h3 class="font-bold text-xl mt-6 mb-3 text-brand-green">Fase 3: Implementação e Crescimento</h3>
-                <ul class="task-list text-gray-200">
-                    <li><strong>Execução e lançamento dos novos produtos e serviços modelados na Fase 2.</strong></li>
-                </ul>
+        <!-- DIAGRAMA DO ECOSSISTEMA -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-16 fade-in" style="animation-delay: 0.6s;">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">O Ecossistema Live</h2>
+                    <p class="mt-2 text-gray-400">Uma jornada de desenvolvimento contínuo.</p>
+                </div>
+                <div class="relative max-w-5xl mx-auto">
+                    <div class="absolute top-1/2 left-0 w-full diagram-line" style="transform: translateY(-50%); z-index: 0;"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative z-10">
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                            <span class="font-bold">1. Formação Antifrágil<br><small>(Ponto de Partida)</small></span>
+                        </div>
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                            <span class="font-bold">2. Comunidade<br><small>(Engajamento Contínuo)</small></span>
+                        </div>
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                            <span class="font-bold">3. Mentoria<br><small>(Desenvolvimento Personalizado)</small></span>
+                        </div>
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                            <span class="font-bold">4. Conselho<br><small>(Ápice da Jornada)</small></span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-8 relative z-10">
+                         <div class="diagram-item w-48 h-24 flex items-center justify-center text-center p-2 rounded-lg bg-azul-card">
+                            <span class="font-bold">Cliente CEO<br><small>(Centro do Ecossistema)</small></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- PRODUTOS E SERVIÇOS -->
+        <section class="py-16 md:py-24 bg-brand-dark/50">
+            <div class="container mx-auto px-4 md:px-16 fade-in highlight-section" style="animation-delay: 0.7s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Produtos & Serviços</h2>
+                    <p class="mt-2 text-gray-400">Nossas soluções para líderes e empresas.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-6 rounded-xl"><h3 class="font-bold text-white">Formações Antifrágeis</h3><p class="text-sm text-gray-400 mt-1">Cursos online e presenciais de Liderança e Vendas.</p></div>
+                    <div class="card p-6 rounded-xl"><h3 class="font-bold text-white">Comunidade Live</h3><p class="text-sm text-gray-400 mt-1">Assinatura com acesso a conteúdos, eventos e networking.</p></div>
+                    <div class="card p-6 rounded-xl"><h3 class="font-bold text-white">Mentorias de Alto Nível</h3><p class="text-sm text-gray-400 mt-1">Individuais ou em grupo com Luiz Portal e CEOs conselheiros.</p></div>
+                    <div class="card p-6 rounded-xl"><h3 class="font-bold text-white">Soluções In-Company</h3><p class="text-sm text-gray-400 mt-1">Treinamentos personalizados para equipes corporativas.</p></div>
+                    <div class="card p-6 rounded-xl"><h3 class="font-bold text-white">Eventos Exclusivos</h3><p class="text-sm text-gray-400 mt-1">Almoço de Líderes e Reunião de Board para networking.</p></div>
+                    <div class="card p-6 rounded-xl"><h3 class="font-bold text-white">Programa de Conselheiros</h3><p class="text-sm text-gray-400 mt-1">Licenciamento para especialistas usarem a marca Live.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABELA DE PREÇOS -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-16 fade-in highlight-section" style="animation-delay: 0.8s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Tabela de Preços</h2>
+                    <p class="mt-2 text-gray-400">Referência de investimento em nossas principais soluções.</p>
+                </div>
+                <div class="max-w-4xl mx-auto card rounded-xl overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-black/30">
+                            <tr>
+                                <th class="p-4 font-semibold">Produto / Serviço</th>
+                                <th class="p-4 font-semibold text-right">Investimento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/10"><td class="p-4">Formação Liderança Antifrágil (Presencial)</td><td class="p-4 text-right font-semibold text-brand-green">R$ 2.497</td></tr>
+                            <tr class="border-b border-white/10"><td class="p-4">Formação Liderança Antifrágil (Online)</td><td class="p-4 text-right font-semibold text-brand-green">R$ 1.497</td></tr>
+                            <tr class="border-b border-white/10"><td class="p-4">Assinatura Mensal da Comunidade</td><td class="p-4 text-right font-semibold text-brand-green">R$ 147,90</td></tr>
+                            <tr class="border-b border-white/10"><td class="p-4">Mentoria de CEO (Individual com L. Portal)</td><td class="p-4 text-right font-semibold text-brand-green">R$ 25.000</td></tr>
+                            <tr class="border-b border-white/10"><td class="p-4">Mentoria de Conselheiro (Individual)</td><td class="p-4 text-right font-semibold text-brand-green">R$ 35.000</td></tr>
+                            <tr><td class="p-4">Conselho / Licenciamento de Uso</td><td class="p-4 text-right font-semibold text-brand-green">R$ 80.000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATUS ATUAL E PRÓXIMOS PASSOS -->
+        <section class="py-16 md:py-24 bg-brand-dark/50">
+            <div class="container mx-auto px-4 md:px-16 grid md:grid-cols-2 gap-12">
+                <div class="fade-in highlight-section" style="animation-delay: 1s;">
+                    <h3 class="text-2xl font-bold mb-6">O Que Está Rodando</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Jornada do Cliente CEO:</strong> Fluxo principal de prospecção e integração bem definido.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Formação em Liderança Antifrágil:</strong> Nosso produto de entrada consolidado.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Comunidade de Membros:</strong> Área de membros ativa com entregas de conteúdo recorrentes.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Sistema de Propostas:</strong> Processo interno automatizado para agilizar a criação de propostas.</span></li>
+                    </ul>
+                </div>
+                <div class="fade-in highlight-section" style="animation-delay: 1.2s;">
+                    <h3 class="text-2xl font-bold mb-6">O Que Ainda Falta Rodar</h3>
+                     <ul class="space-y-4">
+                        <li class="flex items-start"><i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Escalar o Programa de Conselheiros:</strong> Criar funis específicos para o nosso produto de maior valor.</span></li>
+                        <li class="flex items-start"><i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Lançar Cursos de Especialistas:</strong> Estruturar campanhas de lançamento para o portfólio de parceiros.</span></li>
+                        <li class="flex items-start"><i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Expandir Formações In-Company:</strong> Desenvolver uma abordagem de marketing B2B proativa.</span></li>
+                        <li class="flex items-start"><i data-lucide="arrow-right-circle" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Automação e Qualificação:</strong> Implementar automações para qualificar leads e otimizar o topo do funil.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- HISTÓRICO DE EVOLUÇÃO -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-16 fade-in" style="animation-delay: 1.4s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Histórico de Evolução (Últimos Meses)</h2>
+                    <p class="mt-2 text-gray-400">Um panorama do nosso crescimento e marcos recentes.</p>
+                </div>
+                <div class="max-w-5xl mx-auto space-y-8">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-brand-green mb-4">Validação e Tração</h3>
+                        <p class="text-gray-400 leading-relaxed">Consolidamos nosso produto principal, a <strong class="text-white">Formação Liderança Antifrágil</strong>, com a realização de <strong class="text-white">três turmas presenciais de sucesso</strong>. Essa tração foi reforçada pela realização de eventos de alto valor, como o <strong class="text-white">Almoço com o CEO</strong>, que reuniu os alunos da primeira turma em um encontro exclusivo com o CEO conselheiro <strong class="text-white">Georgimar</strong> no ano passado, fortalecendo o networking e a comunidade desde o início.</p>
+                    </div>
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-brand-green mb-4">Expansão e Estruturação Digital</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">Focamos na construção da nossa <strong class="text-white">plataforma de conteúdos online</strong>. Com a parceria da <strong class="text-white">Sobi Estúdios</strong>, avançamos significativamente:</p>
+                        <ul class="space-y-3 text-gray-400">
+                           <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-brand-green mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Cursos Publicados:</strong> Os cursos de <strong class="text-white">Bruno Lesche</strong> (Marketing) e <strong class="text-white">Karolina Vieira</strong> (Reputação) já foram regravados e estão disponíveis na plataforma.</span></li>
+                           <li class="flex items-start"><i data-lucide="loader-2" class="w-5 h-5 text-yellow-400 mr-3 mt-1 flex-shrink-0 animate-spin"></i><span><strong class="text-white">Liderança Antifrágil Online:</strong> A versão digital já está publicada, faltando apenas a gravação da última aula para completar o módulo.</span></li>
+                           <li class="flex items-start"><i data-lucide="clock" class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-white">Aguardando Gravação:</strong> O curso de Vendas do especialista <strong class="text-white">Daniel Bueno</strong> está na nossa programação para ser regravado em breve.</span></li>
+                        </ul>
+                    </div>
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-brand-green mb-4">Crescimento da Consultoria</h3>
+                        <p class="text-gray-400 leading-relaxed">A autoridade gerada pelas formações impulsionou a <strong class="text-white">aquisição de novos clientes para a consultoria</strong>. Empresas como a Visan e a Casas Goianita buscaram a Live para projetos de reestruturação, validando nosso posicionamento como uma consultoria que atua na estratégia e na execução, fortalecendo o ecossistema como um todo.</p>
+                    </div>
+                     <div class="card p-8 rounded-xl text-center">
+                        <h3 class="text-2xl font-bold text-brand-green mb-4">Explore Nossas Plataformas</h3>
+                        <p class="text-gray-400 mb-6">Navegue em nossos canais para ter uma visão completa da nossa presença digital e do conteúdo que oferecemos.</p>
+                        <div class="flex justify-center items-center space-x-8">
+                            <a href="https://ecossistemalive.com.br/" target="_blank" class="flex flex-col items-center text-gray-300 hover:text-brand-green transition-colors">
+                                <i data-lucide="globe" class="w-10 h-10"></i>
+                                <span class="mt-2 text-sm font-semibold">Site Oficial</span>
+                            </a>
+                            <a href="https://www.instagram.com/ecossistemalive/" target="_blank" class="flex flex-col items-center text-gray-300 hover:text-brand-green transition-colors">
+                                <i data-lucide="instagram" class="w-10 h-10"></i>
+                                <span class="mt-2 text-sm font-semibold">Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARCEIROS ESTRATÉGICOS -->
+        <section class="py-16 md:py-24 bg-brand-dark/50">
+            <div class="container mx-auto px-4 md:px-16 fade-in" style="animation-delay: 1.6s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Parceiros Estratégicos</h2>
+                    <p class="mt-2 text-gray-400">Peças-chave na nossa entrega de valor e estratégia de marketing.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-brand-green">Sobi Estúdios</h3>
+                        <p class="mt-2 text-gray-400">Parceiro liderado por Alessandro Serrano, onde realizamos as gravações de alta qualidade das nossas formações e cursos online. Essencial para a produção de conteúdo premium.</p>
+                    </div>
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-brand-green">AV Mídias</h3>
+                        <p class="mt-2 text-gray-400">Potencial parceiro estratégico para a gestão de tráfego pago. A colaboração visa escalar nossas campanhas de lançamento e a captação de leads qualificados para o ecossistema.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Rodapé -->
-    <footer class="bg-transparent mt-12 py-6 border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2025 Ecossistema Live.</p>
+    <!-- FOOTER -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-8 text-center text-gray-500">
+            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Logo Live" class="h-14 mx-auto mb-4">
+            <p class="font-bold text-base text-white">Live Liderança & Vendas</p>
+            <p class="text-xs">Alta performance começa com atitude.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://ecossistemalive.com.br/" target="_blank" class="text-gray-400 hover:text-brand-green transition-colors">
+                    <i data-lucide="globe" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.instagram.com/ecossistemalive/" target="_blank" class="text-gray-400 hover:text-brand-green transition-colors">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
     <script>
-        function openTab(event, tabName) {
-            let tabContents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].style.display = "none";
-            }
-            let tabButtons = document.getElementsByClassName("tab-button");
-            for (let i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].className = tabButtons[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            event.currentTarget.className += " active";
-        }
-    </script>
+        lucide.createIcons();
 
+        // Simple fade-in animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
