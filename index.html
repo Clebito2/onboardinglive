@@ -53,7 +53,9 @@
         }
         
         .card {
-            background-color: var(--azul-card);
+            background-color: rgba(10, 36, 61, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -83,12 +85,16 @@
         
         .diagram-item {
             transition: all 0.3s ease;
-             border: 2px solid var(--verde-vibrante);
+            border: 1px solid rgba(0, 232, 0, 0.3);
+            background-color: rgba(10, 36, 61, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         .diagram-item:hover {
             background-color: var(--verde-vibrante);
             color: var(--azul-petroleo);
             transform: scale(1.05);
+            border-color: var(--verde-vibrante);
         }
         .diagram-line {
             height: 2px;
@@ -177,47 +183,39 @@
                     <h2 class="text-3xl md:text-4xl font-bold">O Ecossistema Live</h2>
                     <p class="mt-2 text-gray-400">Uma jornada de desenvolvimento contínuo e benefícios exclusivos.</p>
                 </div>
-                <div class="relative max-w-5xl mx-auto">
+                <div class="relative max-w-5xl mx-auto space-y-8">
                     <!-- Main Journey Path -->
-                    <div class="relative">
-                        <div class="absolute top-1/2 left-0 w-full diagram-line" style="transform: translateY(-50%); z-index: 0;"></div>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative z-10">
-                            <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
-                                <span class="font-bold">1. Formação Antifrágil<br><small>(Ponto de Partida)</small></span>
-                            </div>
-                            <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
-                                <span class="font-bold">2. Comunidade<br><small>(Engajamento Contínuo)</small></span>
-                            </div>
-                            <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
-                                <span class="font-bold">3. Mentoria<br><small>(Desenvolvimento Personalizado)</small></span>
-                            </div>
-                            <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
-                                <span class="font-bold">4. Conselho<br><small>(Ápice da Jornada)</small></span>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
+                            <span class="font-bold">1. Formação Antifrágil<br><small>(Ponto de Partida)</small></span>
+                        </div>
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
+                            <span class="font-bold">2. Comunidade<br><small>(Engajamento Contínuo)</small></span>
+                        </div>
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
+                            <span class="font-bold">3. Mentoria<br><small>(Desenvolvimento Personalizado)</small></span>
+                        </div>
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
+                            <span class="font-bold">4. Conselho<br><small>(Ápice da Jornada)</small></span>
                         </div>
                     </div>
 
                     <!-- Central Hub -->
-                    <div class="flex justify-center mt-8 relative z-10">
-                         <div class="diagram-item w-48 h-24 flex items-center justify-center text-center p-2 rounded-lg bg-azul-card">
+                    <div class="flex justify-center">
+                         <div class="diagram-item w-48 h-24 flex items-center justify-center text-center p-2 rounded-lg">
                             <span class="font-bold">Cliente CEO<br><small>(Centro do Ecossistema)</small></span>
                         </div>
                     </div>
                     
-                    <!-- Connecting line downwards -->
-                    <div class="relative flex justify-center h-16">
-                        <div class="absolute top-0 w-px h-full bg-verde-vibrante opacity-50"></div>
-                    </div>
-
                     <!-- Member Benefits -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-10">
-                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
                             <span class="font-bold">Eventos Exclusivos<br><small>(Networking de Alto Nível)</small></span>
                         </div>
-                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
                             <span class="font-bold">Cursos e Formações<br><small>(Conteúdo Direcionado)</small></span>
                         </div>
-                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg bg-azul-card">
+                        <div class="diagram-item w-full h-24 flex items-center justify-center p-2 rounded-lg">
                             <span class="font-bold">Consultorias Especializadas<br><small>(Soluções Sob Medida)</small></span>
                         </div>
                     </div>
