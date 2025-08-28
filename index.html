@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ação Estratégico - Pneucar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-petroleo: #06192a;
+            --verde-vibrante: #00e800;
+            --cinza-claro: #f4f4f4;
+            --branco: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--azul-petroleo);
+            background-image: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.05), transparent 50%);
+            color: var(--branco);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        p, li, span, strong {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .font-brand-secondary {
+            font-family: 'Merriweather', serif;
+        }
+
+        .text-brand-green {
+            color: var(--verde-vibrante);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--verde-vibrante);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-button.active {
+            color: var(--verde-vibrante);
+            border-bottom-color: var(--verde-vibrante);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+
+        .task-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+        }
+
+        .task-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--verde-vibrante);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .task-details {
+            font-size: 0.875rem; /* text-sm */
+            color: #a0aec0; /* text-gray-400 */
+            margin-top: 4px;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(0, 232, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="bg-transparent">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-start space-x-4">
+                <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Ecossistema Live" class="h-10">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-white">Pneucar</h1>
+                    <p class="text-md text-brand-green font-semibold">Projeto de Estruturação e Eficiência Operacional</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Seção Macro Plano Estratégico -->
+        <section id="macro-plano" class="mb-12">
+            <h2 class="text-2xl font-bold text-white section-title flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                Macro Plano Estratégico
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Fase 1 -->
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="bg-gray-800 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4 border-2 border-green-500">
+                        <span class="text-2xl font-bold text-brand-green">1</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-white">Estruturação (AS-IS)</h3>
+                    <p class="text-gray-400 text-sm">Organizar a base da operação, mapear processos, definir responsabilidades e mitigar riscos atuais.</p>
+                </div>
+                <!-- Fase 2 -->
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="bg-gray-800 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4 border-2 border-gray-500">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-white">Modelagem (TO-BE)</h3>
+                    <p class="text-gray-400 text-sm">Desenhar novas linhas de produtos/serviços, reestruturar a equipe e contratar talentos para a expansão.</p>
+                </div>
+                <!-- Fase 3 -->
+                <div class="card p-6 rounded-lg text-center">
+                    <div class="bg-gray-800 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4 border-2 border-gray-500">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-white">Implementação</h3>
+                    <p class="text-gray-400 text-sm">Executar a nova modelagem de negócio, lançar os novos serviços e escalar a operação com base no planejamento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Plano de Ação Fase 1 -->
+        <section id="plano-acao">
+            <h2 class="text-2xl font-bold text-white section-title flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 011.447-.894L9 9m0 11V9m0 11a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2a2 2 0 012-2h2z" /></svg>
+                Fase 1: Plano de Ação (Estruturação)
+            </h2>
+            
+            <!-- Botões das Abas -->
+            <div class="flex flex-wrap border-b border-gray-700 mb-6">
+                <button class="tab-button active text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-a')">A. Estratégia</button>
+                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-b')">B. Processos</button>
+                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-c')">C. RH</button>
+                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-d')">D. Comercial</button>
+                <button class="tab-button text-lg font-semibold py-2 px-4" onclick="openTab(event, 'tab-e')">E. Melhoria</button>
+            </div>
+
+            <!-- Conteúdo das Abas -->
+            <div class="card p-6 rounded-lg">
+                <div id="tab-a" class="tab-content" style="display: block;">
+                    <h3 class="font-bold text-xl mb-3 text-brand-green">A. Modelagem e Estratégia do Negócio</h3>
+                    <ul class="task-list text-gray-200">
+                        <li>
+                            <strong>Construir o Business Model Canvas</strong>
+                            <div class="task-details">
+                                <p><strong>Responsáveis:</strong> Luís e Marcell.</p>
+                                <p><strong>Participação:</strong> Cléber (ativa na elaboração e execução).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab-b" class="tab-content">
+                    <h3 class="font-bold text-xl mb-3 text-brand-green">B. Mapeamento de Processos "As-Is"</h3>
+                    <ul class="task-list text-gray-200">
+                        <li>
+                            <strong>Entrega de Áudios de Mapeamento</strong>
+                            <div class="task-details">
+                                <p><strong>Descrição:</strong> Marcell deve detalhar a jornada do cliente, rotinas do mecânico e do gestor, portfólio de serviços e escopo de veículos.</p>
+                                <p><strong>Responsável:</strong> Marcell.</p>
+                                <p><strong>Prazo:</strong> 02/09/2025 (Terça-feira).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab-c" class="tab-content">
+                    <h3 class="font-bold text-xl mb-3 text-brand-green">C. Estruturação Organizacional e de RH</h3>
+                    <ul class="task-list text-gray-200">
+                        <li>
+                            <strong>Entrega de Áudio (Estrutura e Cargos)</strong>
+                            <div class="task-details">
+                                <p><strong>Descrição:</strong> Marcell deve enviar áudio descrevendo a estrutura atual e as funções de cada membro da equipe.</p>
+                                <p><strong>Responsável:</strong> Marcell.</p>
+                                <p><strong>Prazo:</strong> 29/08/2025 (Sexta-feira).</p>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Desenhar o Organograma da Empresa</strong>
+                            <div class="task-details">
+                                <p><strong>Responsáveis:</strong> Luiz Portal e Marcell.</p>
+                                <p><strong>Prazo:</strong> 02/09/2025 (Terça-feira).</p>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Revisar o Plano de Cargos e Salários</strong>
+                            <div class="task-details"><p><strong>Prazo:</strong> A definir.</p></div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab-d" class="tab-content">
+                    <h3 class="font-bold text-xl mb-3 text-brand-green">D. Análise Comercial e de Serviços</h3>
+                     <ul class="task-list text-gray-200">
+                        <li>
+                            <strong>Extrair Relatórios do Sistema</strong>
+                            <div class="task-details">
+                                <p><strong>Descrição:</strong> Marcell deve gerar relatórios de tabela de preços (produtos) e curva ABC (produtos e serviços).</p>
+                                <p><strong>Responsável:</strong> Marcell.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab-e" class="tab-content">
+                    <h3 class="font-bold text-xl mb-3 text-brand-green">E. Melhoria Contínua e Conformidade</h3>
+                    <ul class="task-list text-gray-200">
+                        <li>
+                            <strong>Programa 5S</strong>
+                            <div class="task-details"><p><strong>Responsável:</strong> A definir (Terceirizado ou Marcell com apoio do Cléber).</p></div>
+                        </li>
+                        <li>
+                            <strong>Levantar Riscos Trabalhistas</strong>
+                            <div class="task-details">
+                                <p><strong>Ação:</strong> Fazer cotação com Dr. Renato Leandro (Advogado Trabalhista).</p>
+                                <p><strong>Responsável:</strong> A definir.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Implementar a "Gestão à Vista"</strong>
+                            <div class="task-details">
+                                <p><strong>Descrição:</strong> Criar painéis visuais para rotinas, checklists e indicadores.</p>
+                                <p><strong>Responsável:</strong> Cléber.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Fases 2 e 3 -->
+        <section id="fases-futuras" class="mt-12">
+            <h2 class="text-2xl font-bold text-white section-title flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                Visão de Futuro: Fases 2 e 3
+            </h2>
+            <div class="card p-6 rounded-lg">
+                <h3 class="font-bold text-xl mb-3 text-brand-green">Fase 2: Modelagem e Expansão (TO-BE)</h3>
+                <ul class="task-list text-gray-200">
+                    <li><strong>Modelagem de novas linhas de produtos e serviços.</strong></li>
+                    <li><strong>Desligamento ou repactuação com os dois irmãos mecânicos.</strong></li>
+                    <li><strong>Contratação de um vendedor para a Pneucar.</strong></li>
+                </ul>
+                <h3 class="font-bold text-xl mt-6 mb-3 text-brand-green">Fase 3: Implementação e Crescimento</h3>
+                <ul class="task-list text-gray-200">
+                    <li><strong>Execução e lançamento dos novos produtos e serviços modelados na Fase 2.</strong></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-transparent mt-12 py-6 border-t border-gray-700">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 Ecossistema Live.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(event, tabName) {
+            let tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = "none";
+            }
+            let tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>
